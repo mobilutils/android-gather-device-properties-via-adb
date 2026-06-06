@@ -104,7 +104,7 @@ get_prop() {
   local prop_file="$2"
   local val
     # Format is [key]: [value]
-  val=$(grep -m1 "^\[${key}\]:" "${prop_file}" 2>/dev/null | sed "s/^\[${key}\]: \[//;s/\]$//")
+  val=$(grep -m1 "^\[${key}\]:" "${prop_file}" 2>/dev/null | sed "s/^\[${key}\]: \[//;s/\]$//;s/[[:space:]]*$//")
   echo "${val:-}"
 }
 
@@ -425,7 +425,7 @@ fi
 
 # --- Generate output file ----------------------------------------------------
 TIMESTAMP=$(date +%Y%m%d)
-MODEL_SLUG=$(echo "${BUILD_MODEL}" | tr -c '[:alnum:]._-_' '_' | tr ' ' '_' | head -c 30)
+MODEL_SLUG=$(printf '%s' "${BUILD_MODEL}" | tr -c '[:alnum:]. _-' '_' | tr ' ' '_' | head -c 30)
 OUTPUT_FILE="${PROFILES_DIR}/${TIMESTAMP}_${MODEL_SLUG}.properties"
 
 mkdir -p "${PROFILES_DIR}"
