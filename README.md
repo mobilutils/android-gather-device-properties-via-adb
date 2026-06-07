@@ -1,3 +1,4 @@
+![Pic](./persona-with-a-phone.png) 
 # android-gather-device-properties-via-adb
 
 Extracts device properties from an Android device via ADB and produces a `.properties` file suitable for use with **Aurora Store** / **gplaydl** device profiles.
@@ -119,9 +120,13 @@ The generated file includes:
 
 ```
 .
-├── gather-deviceproperties.sh   # Main script
-├── profiles/                    # Output directory (I left examples)
-└── QWEN.md                      # Development context
+├── gather-deviceproperties.sh
+├── persona-with-a-phone.png
+├── profiles
+│   ├── 20260606_Samsung_A346B.properties
+│   ├── 20260606_SM-X306B.properties
+│   └── 20260607_SM-T505.properties
+└── README.md
 ```
 
 ## License
